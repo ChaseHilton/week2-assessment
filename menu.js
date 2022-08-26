@@ -163,7 +163,10 @@ const foodArr = [
 //let cheese = foodArr.filter(tags = 'cheesy')
 
 const filteredFood = foodArr.filter((food) => {
-if(food.tags.inlcudes('kids')){
+// if(food.tags.inlcudes('kids')){
+//     return food
+// }
+if(food.tags.includes('kids')){
     return food
 }
 })
@@ -231,4 +234,4 @@ let filterByProperty = (property, number, type) => {
 
 //CODE HERE
 
-console.log(filterByProperty('popularity', 3, 'below'))
+// console.log(filterByProperty('popularity', 3, 'below'))
