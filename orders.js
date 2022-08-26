@@ -31,11 +31,11 @@
 
 //CODE HERE
 class ticket {
-    constructor(items,orderTime,customerId,status){
+    constructor(items,orderTime,customerId){
     this.items = items,
     this.orderTime = orderTime,
     this.customerId = customerId,
-    this.status = status
+    this.status = 'queued'
 }
 updateStatus(newStatus){
     this.status = newStatus
@@ -57,8 +57,9 @@ updateStatus(newStatus){
 
 //CODE HERE
 
-let firstTicket = new ticket('pizza','6:05 PM','67')
+const firstTicket = new ticket(['pizza', 'cookies', 'lemonade'], '6:17', 67)
 
+console.log(firstTicket)
 /*
     Call the `updateStatus` method on
     `firstTicket` passing in the string
@@ -66,6 +67,5 @@ let firstTicket = new ticket('pizza','6:05 PM','67')
 */
 
 //CODE HERE
-updateStatus(status){
-    this.status = 'cooking'
-}
+ 
+firstTicket.updateStatus('cooking')

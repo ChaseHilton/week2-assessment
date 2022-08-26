@@ -35,7 +35,9 @@ const cart = [
 
 //CODE HERE
 
-const summedPrice = cart.reduce((a, c) => a + c)
+const summedPrice = cart.reduce((total, current) => total + current.price, 0)
+
+console.log(summedPrice)
 
 
 
@@ -56,7 +58,14 @@ const summedPrice = cart.reduce((a, c) => a + c)
 
 //CODE HERE
 
-let calcFinalPrice = (cartTotal, couponValue,Tax) => cartTotal - couponValue * .06
+const calcFinalPrice = (cartTotal, couponValue,Tax) => {
+    const totalbeforeCoupon = cartTotal * (1- Tax)
+    const finalPrice = totalbeforeCoupon - couponValue
+
+    return finalPrice
+}
+
+
 
 //////////////////PROBLEM 3////////////////////
 /*  
@@ -96,7 +105,7 @@ let calcFinalPrice = (cartTotal, couponValue,Tax) => cartTotal - couponValue * .
 
 //CODE HERE
 
-let Customer ={
+const firstCustomer ={
     PartyName: 'Hilton',
     PartySize: 5,
     Children: 2,
