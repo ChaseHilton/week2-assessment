@@ -30,7 +30,7 @@
     'kids'
 */
 
-let pizza = {
+const pizza = {
     name: 'pepperoni',
     price: 3.14,
     category: 'kids',
@@ -52,6 +52,8 @@ let pizza = {
 //CODE HERE
 console.log(pizza.popularity)
 
+
+
 /*
     Second, log the second tag in your pizza's
     tags array.
@@ -60,7 +62,7 @@ console.log(pizza.popularity)
 */
 
 //CODE HERE
-console.log(pizza.tags['',''])
+console.log(pizza.tags[1])
 
 /*
     Third, destructure the price off of the
@@ -70,7 +72,7 @@ console.log(pizza.tags['',''])
 */
 
 //CODE HERE
-let{price} = NewPrice
+const {price: newPrice} = pizza
 
 /*
     Fourth, and last, destructure the category
@@ -80,8 +82,8 @@ let{price} = NewPrice
 */
 
 //CODE HERE
-let{category} = Newcategory
-console.log (Newcategory.category)
+const{category} = pizza
+console.log (category)
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -96,37 +98,47 @@ console.log (Newcategory.category)
 */
 
 //CODE HERE
-let foodArr = [{name: 'pepperoni',
-price: 4.15,
-category: 'kids',
-popularity: 8,
-rating: 8,
-tags: ['lowfat','lowCalorie']
-},
-{name: 'pepperoni',
-price: 3.14,
-category: 'kids',
-popularity: 5,
-rating: 4,
-tags: ['tasty','lowCalorie']},
-{name: 'pepperoni',
-price: 6.14,
-category: 'kids',
-popularity: 7,
-rating: 3,
-tags: ['big','meat']},
-{name: 'pepperoni',
-price: 1.14,
-category: 'kids',
-popularity: 6,
-rating: 9,
-tags: ['small','ham']},
-{name: 'pepperoni',
-price: 7.12,
-category: 'kids',
-popularity: 8,
-rating: 7,
-tags: ['cheesy','protien']}
+const foodArr = [
+    {
+        name: 'pizza', 
+        price: 9.99, 
+        category: 'entree', 
+        popularity: 1, 
+        rating: 4.7, 
+        tags: ['customer favorite', 'kids', 'gluten-free option']
+    }, 
+    {
+        name: 'pasta', 
+        price: 8.99, 
+        category: 'entree', 
+        popularity: 3, 
+        rating: 4.8, 
+        tags: ['customer favorite']
+    }, 
+    {
+        name: 'salad', 
+        price: 7.99, 
+        category: 'side', 
+        popularity: 4, 
+        rating: 4.4, 
+        tags: ['gluten-free option']
+    }, 
+    {
+        name: 'cookie', 
+        price: 2.99, 
+        category: 'dessert', 
+        popularity: 2, 
+        rating: 5.0, 
+        tags: ['customer favorite', 'kids']
+    }, 
+    {
+        name: 'breadsticks', 
+        price: 6.99, 
+        category: 'side', 
+        popularity: 5, 
+        rating: 4.6, 
+        tags: ['customer favorite', 'kids']
+    }
 ]
 
 
@@ -150,9 +162,13 @@ tags: ['cheesy','protien']}
 
 //let cheese = foodArr.filter(tags = 'cheesy')
 
-const filteredFood = foodArr.filter(tags = 'cheesy')
+const filteredFood = foodArr.filter((food) => {
+if(food.tags.inlcudes('kids')){
+    return food
+}
+})
 
-
+console.log(filteredFood)
 
 //////////////////PROBLEM 5////////////////////
 /* 
@@ -194,7 +210,17 @@ const filteredFood = foodArr.filter(tags = 'cheesy')
 */
 
 //CODE HERE
-let filterByProperty = (property, number, type) =>
+
+let filterByProperty = (property, number, type) => {
+    const filteredFood = foodArr.filter((food) => {
+        if(type === 'above'){
+            return food[property] >= number
+        }else{
+            return food[property] <= number
+        }
+    })
+            return filteredFood
+}
 
 /*
     Invoke the `filterByProperty` function passing
@@ -204,3 +230,5 @@ let filterByProperty = (property, number, type) =>
 */
 
 //CODE HERE
+
+console.log(filterByProperty('popularity', 3, 'below'))

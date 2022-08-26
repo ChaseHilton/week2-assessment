@@ -23,10 +23,15 @@
 
 //CODE HERE
 
-let greetUser = (username) =>{
-return `welcome back, ${username}`
+// let greetUser = (username) =>{
+// return `welcome back, ${username}`
+// }
+
+let greetUser = (username) => {
+   return `welcome back, ${username}`
 }
 
+console.log(greetUser('kyle'))
 
 //////////////////PROBLEM 2////////////////////
 /* 
@@ -51,16 +56,28 @@ return `welcome back, ${username}`
 const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
 //CODE HERE
-let canWedeliver = (zipcode) => {
-    for(let i = 0; i < deliveryAreaZipCodes; i++){
-        if(zipcode !== deliveryAreaZipCodes[i]){
+// let canWedeliver = (zipcode) => {
+//     for(let i = 0; i < deliveryAreaZipCodes; i++){
+//         if(zipcode !== deliveryAreaZipCodes[i]){
             
- }
-    return (`sorry, we cant deliver to that address`)
-}
-}
+//  }
+//     return (`sorry, we cant deliver to that address`)
+// }
+// }
 
 
+let canWeDeliver = (zipCode) => {
+    for(let i = 0; i < deliveryAreaZipCodes.length; i++){
+        if(deliveryAreaZipCodes[i] === zipCode){
+            return 'You are eligible for delivery'
+        }
+            
+        }
+    return 'sorry we cant deliver to that address'
+}
+
+console.log(canWeDeliver(85203))
+console.log(canWeDeliver(82783))
 /* 
     Problem 2 Continued
 
@@ -79,11 +96,21 @@ let canWedeliver = (zipcode) => {
 */
 
 // CODE HERE
-let canWeDeliverTwo = (zipcode) => {
-    if(!deliveryAreaZipCodes.includes(zipcode)){
-        console.log(`sorry we cant deliver to that address`)
+// let canWeDeliverTwo = (zipcode) => {
+//     if(!deliveryAreaZipCodes.includes(zipcode)){
+//         console.log(`sorry we cant deliver to that address`)
+//     }
+// }
+
+let canWeDeliverTwo = (zipCode) => {
+    if(deliveryAreaZipCodes.includes(zipCode)){
+        return 'we can deliver!'
+    }else{
+        return 'Sorry we cant deliver to that address'
     }
 }
+console.log(canWeDeliverTwo(23423))
+
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -119,9 +146,11 @@ const deals = [
 */
 
 //CODE HERE
-deals["title"] = "10% off!"
+console.log(deals[0].title)
 
+deals[0].title = deals[0].title.replace(`15%`, '10%')
 
+console.log(deals[0].title)
 /*
     The restaurant is going to continue its
     family deal for another month. 
@@ -137,3 +166,8 @@ deals["title"] = "10% off!"
 
 //CODE HERE
 
+console.log(deals[1].desc)
+
+deals[1].desc = deals[1].desc.trim().replace('March','April')
+
+console.log(deals[1].desc)
